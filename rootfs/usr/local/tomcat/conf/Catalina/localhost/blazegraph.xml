@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Context docBase="/usr/local/tomcat/webapps/blazegraph.war" debug="0" crossContext="true" >
-   <Environment name="blazegraph/home" type="java.lang.String" value="/usr/local/blazegraph" override="true" />
-</Context>
