@@ -1,4 +1,4 @@
-FROM islandoracollabgroup/isle-tomcat:serverjre8
+FROM islandoracollabgroup/isle-tomcat:1.1.1
 
 ## Past usage was with version 2.1.0 but test using 2.1.4 (latest as of 2016) instead.
 ENV BLZG_CONF=/etc/bigdata \
