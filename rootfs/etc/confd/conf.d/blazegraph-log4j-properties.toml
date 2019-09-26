@@ -1,0 +1,12 @@
+[template]
+src = "blazegraph/blazegraph-log4j.properties.tpl"
+dest = "/etc/bigdata/log4j.properties"
+uid = 1000
+gid = 1000
+mode = "0740"
+keys = [
+  "/blazegraph/root/category/log",
+  "/blazegraph/bigdata/log",
+  "/blazegraph/bigdata/btree/log",
+  "/blazegraph/bigdata/rule/log"
+]

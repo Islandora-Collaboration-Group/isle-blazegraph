@@ -1,9 +1,12 @@
-FROM islandoracollabgroup/isle-tomcat:serverjre8
+FROM islandoracollabgroup/isle-tomcat:1.3.0
 
-## Past usage was with version 2.1.0 but test using 2.1.4 (latest as of 2016) instead.
 ENV BLZG_CONF=/etc/bigdata \
     BLZG_DATA=/var/bigdata \
-    BLZG_VERSION=2.1.4 \
+    BLZG_VERSION=2.1.5 \
+    BLAZEGRAPH_ROOT_CATEGORY_LOG=WARN \
+    BLAZEGRAPH_BIGDATA_LOG=WARN \
+    BLAZEGRAPH_BIGDATA_BTREE_LOG=WARN \
+    BLAZEGRAPH_BIGDATA_RULE_LOG=INFO \
     CATALINA_BASE=/usr/local/tomcat \
     JAVA_MAX_MEM=${JAVA_MAX_MEM:-2G} \
     JAVA_MIN_MEM=${JAVA_MIN_MEM:-512M} \

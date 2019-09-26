@@ -15,7 +15,7 @@ Based on:
       - Tomcat 8.5.x
 
 Contains and Includes:
-  - [Blazegraph](https://www.blazegraph.com/) 2.1.4 an ultra high-performance graph database / server
+  - [Blazegraph](https://www.blazegraph.com/) 2.1.5 an ultra high-performance graph database / server
   - [Discovery Garden's](https://www.discoverygarden.ca/) [Blazegraph Configurations](https://github.com/discoverygarden/blazegraph_conf) _"Supporting config files for blazegraph install"_
 
 Size: TBD
@@ -28,10 +28,4 @@ docker run -it -p "8084:8084" --rm islandoracollabgroup/isle-blazegraph bash
 
 ### Default Login information
 
-Tomcat Admin
-  - Username: admin
-  - Password: isle_admin 
-
-Tomcat Manager
-  - Username: manager
-  - Password: isle_manager  
+* Review the `Tomcat Admin` & `Tomcat Manager` Usernames and passwords found in your environment (e.g. local, production) .env files
