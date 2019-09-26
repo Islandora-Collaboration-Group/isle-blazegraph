@@ -1,4 +1,4 @@
-FROM borndigital/isle-tomcat:1.3.0-dev
+FROM islandoracollabgroup/isle-tomcat:1.3.0
 
 ENV BLZG_CONF=/etc/bigdata \
     BLZG_DATA=/var/bigdata \
