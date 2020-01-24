@@ -1,5 +1,7 @@
-FROM islandoracollabgroup/isle-tomcat:1.4.0
+FROM islandoracollabgroup/isle-tomcat:1.4.1
 
+## Blazegraph Environment
+# @see: https://github.com/blazegraph/database/releases
 ENV BLZG_CONF=/etc/bigdata \
     BLZG_DATA=/var/bigdata \
     BLZG_VERSION=2.1.5 \
@@ -27,7 +29,7 @@ RUN mkdir -p $BLZG_CONF && \
     sleep 90 && \ 
     rm -rf /tmp/* /var/tmp/*
 
-# Labels
+## Labels
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
