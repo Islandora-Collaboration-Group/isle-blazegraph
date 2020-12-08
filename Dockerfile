@@ -26,7 +26,6 @@ RUN mkdir -p $BLZG_CONF && \
     chmod -R 755 $BLZG_DATA && \
     cd $CATALINA_HOME/webapps/ && \
     mv /tmp/bigdata.war $CATALINA_HOME/webapps/ && \
-    #curl -L https://sourceforge.net/projects/bigdata/files/bigdata/$BLZG_VERSION/bigdata.war/download -o blazegraph.war && \
     $CATALINA_HOME/bin/startup.sh && \  
     ## Docker Hub Auto-builds need some time.
     sleep 90 && \ 
