@@ -17,6 +17,7 @@ ENV BLZG_CONF=/etc/bigdata \
     JAVA_OPTS='-Djava.awt.headless=true -server -Xmx${JAVA_MAX_MEM} -Xms${JAVA_MIN_MEM} -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=200 -XX:InitiatingHeapOccupancyPercent=70 -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true -Dcom.bigdata.rdf.sail.webapp.ConfigParams.propertyFile=/etc/bigdata/RWStore.properties -Dlog4j.configuration=/etc/bigdata/log4j.properties -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8'
 
 ## Blazegraph Installation
+ADD https://sourceforge.net/projects/bigdata/files/bigdata/$BLZG_VERSION/bigdata.war/download /tmp/
 RUN mkdir -p $BLZG_CONF && \
     chown -R tomcat:tomcat $BLZG_CONF && \
     chmod -R 755 $BLZG_CONF && \
@@ -24,7 +25,8 @@ RUN mkdir -p $BLZG_CONF && \
     chown -R tomcat:tomcat $BLZG_DATA && \
     chmod -R 755 $BLZG_DATA && \
     cd $CATALINA_HOME/webapps/ && \
-    curl -L https://sourceforge.net/projects/bigdata/files/bigdata/$BLZG_VERSION/bigdata.war/download -o blazegraph.war && \
+    mv /tmp/bigdata.war $CATALINA_HOME/webapps/ && \
+    #curl -L https://sourceforge.net/projects/bigdata/files/bigdata/$BLZG_VERSION/bigdata.war/download -o blazegraph.war && \
     $CATALINA_HOME/bin/startup.sh && \  
     ## Docker Hub Auto-builds need some time.
     sleep 90 && \ 
