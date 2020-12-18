@@ -5,7 +5,8 @@ FROM borndigital/isle-tomcat:1.5.3
 # @see: https://github.com/blazegraph/database/releases
 ENV BLZG_CONF=/etc/bigdata \
     BLZG_DATA=/var/bigdata \
-    BLZG_VERSION=2_1_5 \
+    #BLZG_VERSION=2_1_5 \
+    BLZG_VERSION=2.1.5 \
     BLAZEGRAPH_ROOT_CATEGORY_LOG=WARN \
     BLAZEGRAPH_BIGDATA_LOG=WARN \
     BLAZEGRAPH_BIGDATA_BTREE_LOG=WARN \
@@ -17,7 +18,7 @@ ENV BLZG_CONF=/etc/bigdata \
     JAVA_OPTS='-Djava.awt.headless=true -server -Xmx${JAVA_MAX_MEM} -Xms${JAVA_MIN_MEM} -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=200 -XX:InitiatingHeapOccupancyPercent=70 -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true -Dcom.bigdata.rdf.sail.webapp.ConfigParams.propertyFile=/etc/bigdata/RWStore.properties -Dlog4j.configuration=/etc/bigdata/log4j.properties -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8'
 
 ## Blazegraph Installation
-ADD https://github.com/blazegraph/database/releases/download/BLAZEGRAPH_RELEASE_$BLZG_VERSION/bigdata.war /tmp/
+#ADD https://github.com/blazegraph/database/releases/download/BLAZEGRAPH_RELEASE_$BLZG_VERSION/bigdata.war /tmp/
 RUN mkdir -p $BLZG_CONF && \
     chown -R tomcat:tomcat $BLZG_CONF && \
     chmod -R 755 $BLZG_CONF && \
@@ -25,7 +26,8 @@ RUN mkdir -p $BLZG_CONF && \
     chown -R tomcat:tomcat $BLZG_DATA && \
     chmod -R 755 $BLZG_DATA && \
     cd $CATALINA_HOME/webapps/ && \
-    mv /tmp/bigdata.war $CATALINA_HOME/webapps/ && \
+    curl -L https://sourceforge.net/projects/bigdata/files/bigdata/$BLZG_VERSION/bigdata.war/download -o blazegraph.war && \
+    #mv /tmp/bigdata.war $CATALINA_HOME/webapps/ && \
     $CATALINA_HOME/bin/startup.sh && \  
     ## Docker Hub Auto-builds need some time.
     sleep 90 && \ 
