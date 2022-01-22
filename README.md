@@ -9,9 +9,6 @@ Blazegraph is a ultra high-performance triplestore and graph database which can 
 
 Based on:
 * [ISLE-tomcat](https://cloud.docker.com/u/islandoracollabgroup/repository/docker/islandoracollabgroup/isle-tomcat)
-  * Ubuntu 18.04 "Bionic" (@see [ISLE-ubuntu-basebox](https://cloud.docker.com/u/islandoracollabgroup/repository/docker/islandoracollabgroup/isle-ubuntu-basebox)
-    * General Dependencies
-    * Oracle Java 8 Server JRE
     * Tomcat 8.5.x
 
 Contains and Includes:
