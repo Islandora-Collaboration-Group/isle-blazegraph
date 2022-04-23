@@ -1,4 +1,4 @@
-FROM islandoracollabgroup/isle-tomcat:1.5.17
+FROM islandoracollabgroup/isle-tomcat:1.5.18
 
 ## Blazegraph Environment
 # @see: https://github.com/blazegraph/database/releases
